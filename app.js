@@ -42,8 +42,7 @@ app.listen(8080,()=>{
 })
 
 app.get("/listings",(req,res)=>{
-    allListings = await Listing.find({});
-    res.render("index.ejs", { allListings })
+    console.log();
 })
 const store= MongoStore.create({
     mongoUrl:dburl,
