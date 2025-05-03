@@ -41,11 +41,7 @@ app.listen(8080,()=>{
     console.log("server is listening successsfully");
 })
 
-app.get("/listings",async(req,res)=>{
-     allListings = await Listing.find({});
-    res.render("index.ejs", { allListings })
 
-})
 const store= MongoStore.create({
     mongoUrl:dburl,
     crypto:{
@@ -96,7 +92,7 @@ app.use((req,res,next)=>{
 //     res.send(registeredUser)
 // });
 
-app.use("/listings",listingRouter)
+
 app.use("/listings/:id/reviews",reviewRouter)
 app.use("/",userRouter);
 
@@ -124,5 +120,5 @@ app.use((err,req,res,next)=>{
     let {statusCode=500,message="something went wrong!"}=err;
     res.status(statusCode).render("error.ejs",{err});
 })
-
+app.use("/listings",listingRouter)
 
