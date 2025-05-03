@@ -91,9 +91,7 @@ app.use((req,res,next)=>{
 //     let registeredUser=await User.register(fakeUser,"hello world");
 //     res.send(registeredUser)
 // });
-app.all("*",(req,res,next)=>{
-    next(new ExpressError(404,"page not found"))
-})
+
 app.use("/listings",listingRouter)
 app.use("/listings/:id/reviews",reviewRouter)
 app.use("/",userRouter);
@@ -101,24 +99,15 @@ app.use("/",userRouter);
 
    
 
-// app.get("/testlisting",async (req,res)=>{
-//     let sampleListing=new Listing({
-//         title:"my new villa",
-//         description:"by the beach",
-//         price:1200,
-//         location:"calangute,goa",
-//         country:"india",
-//     })
-//     await sampleListing.save();
-//         console.log("sample saved");
-//         res.send("succesful testing");
-   
-
-// })
+app.use("/listings",listingRouter)
 
 app.use((err,req,res,next)=>{
     let {statusCode=500,message="something went wrong!"}=err;
     res.status(statusCode).render("error.ejs",{err});
 })
-app.use("/listings",listingRouter)
+
+
+app.all("*",(req,res,next)=>{
+    next(new ExpressError(404,"page not found"))
+})
 
