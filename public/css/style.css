@@ -24,31 +24,6 @@ body{
     color: black!important;
 }
 
-.f-info-links a{
-    text-decoration: none;
-    color: black;
-
-}
-.f-info-links a:hover{
-    text-decoration: underline;
-
-}
-
-
-.f-info-links{
-    width: 100px;
-    position: relative;
-    left: 700px;
-}
-
-.f-info-socials{
-    width: 100%;
-    font-size: 1.2rem;
-
-}
-.f-info-socials i{
-    margin-right: 1rem;
-}
 .card-listing{
     border: none!important;
     margin-bottom: 2rem;
@@ -118,27 +93,35 @@ body{
 
 }
 
-.footer{
+
+.f-info-links a {
+    text-decoration: none;
+}
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
     background-color: rgb(196, 204, 255);
     display: flex;
-    flex-direction: column;
-   justify-content: center;
-    height: 100px;
-}
-.f-info{
-    background-color:rgb(196, 204, 255) ;
-    
-    text-align: center;
-    
-    
-    
-}
-.company{
-    text-align: center;
-    
-    
-}
-.map{
-    height: 400px;
-    width: 80vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
 }

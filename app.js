@@ -64,7 +64,7 @@ const sessionOptions={
         expires:Date.now()+7*24*60*60*1000,
         maxAge:7*24*60*60*1000,
         httpOnly:true
-    }
+    }                                                                                                                                                                                                                                                                                                                                                                                                                      
 }
 
 
@@ -85,14 +85,14 @@ app.use((req,res,next)=>{
     next();
 })
 
-app.get("/demouser",async (req,res)=>{
-    let fakeUser=new User({
-        email:"vivek@gmail.com",
-        username:"varun"
-    })
-    let registeredUser=await User.register(fakeUser,"hello world");
-    res.send(registeredUser)
-});
+// app.get("/demouser",async (req,res)=>{
+//     let fakeUser=new User({
+//         email:"vivek@gmail.com",
+//         username:"varun"
+//     })
+//     let registeredUser=await User.register(fakeUser,"hello world");
+//     res.send(registeredUser)
+// });
 
 app.use("/listings",listingRouter)
 app.use("/listings/:id/reviews",reviewRouter)
