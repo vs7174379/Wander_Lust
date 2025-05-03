@@ -41,8 +41,9 @@ app.listen(8080,()=>{
     console.log("server is listening successsfully");
 })
 
-app.get("/",(req,res)=>{
-    res.send("Hi,i am root");
+app.get("/listings",(req,res)=>{
+    allListings = await Listing.find({});
+    res.render("index.ejs", { allListings })
 })
 const store= MongoStore.create({
     mongoUrl:dburl,
