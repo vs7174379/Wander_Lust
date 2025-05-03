@@ -41,8 +41,10 @@ app.listen(8080,()=>{
     console.log("server is listening successsfully");
 })
 
-app.get("/listings",(req,res)=>{
-    console.log();
+app.get("/listings",async(req,res)=>{
+     allListings = await Listing.find({});
+    res.render("index.ejs", { allListings })
+
 })
 const store= MongoStore.create({
     mongoUrl:dburl,
